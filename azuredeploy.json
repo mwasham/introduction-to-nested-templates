@@ -60,7 +60,7 @@
                     "adminUserName":{"value": "[parameters('adminUserName')]"},
                     "adminPassword":{"value": "[parameters('adminPassword')]"},
                     "domainName":{"value": "[parameters('domainName')]"},
-                    "adInstallScriptUrl":{"value": "[variables('ADInstallScript')"}
+                    "adInstallScriptUrl":{"value": "[variables('ADInstallScript')]"}
                 }
             }
         },
@@ -96,7 +96,7 @@
             "adminUserName":{"value": "[parameters('adminUserName')]"},
             "adminPassword":{"value": "[parameters('adminPassword')]"},
             "domainName":{"value": "[parameters('domainName')]"},
-            "DomainJoinscriptUrl":{"value": "[variables('ADJoinScript')"}
+            "DomainJoinscriptUrl":{"value": "[variables('ADJoinScript')]"}
         }
     }
 }
