@@ -131,10 +131,7 @@
             "displayName": "advmip"
         },
         "properties": {
-            "publicIPAllocationMethod": "Dynamic",
-            "dnsSettings": {
-                "domainNameLabel": "[parameters('advmipDnsName')]"
-            }
+            "publicIPAllocationMethod": "Dynamic"
         }
     },
     {
