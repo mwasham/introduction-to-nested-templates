@@ -73,6 +73,7 @@
     "MABSServerVM1NicName": "[concat(parameters('DomainJoinedVMName'), 'NetworkInterface')]",
     "MABSDISK1": "[concat('http://',variables('vmstorageName'),'.blob.core.windows.net/','vhds','/','dataDisk1.vhd')]",
     "MABSServerVm1-IPName": "MABSServerVm1-IP"
+
   },
   "resources": [
     {
