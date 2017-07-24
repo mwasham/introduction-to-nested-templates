@@ -96,8 +96,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2016-03-30",
       "dependsOn": [
-        "Microsoft.Resources/deployments/VNet",
-        "[resourceId('Microsoft.Network/publicIPAddresses', variables('MABSServerVm1-IPName'))]"
+         "[resourceId('Microsoft.Network/publicIPAddresses', variables('MABSServerVm1-IPName'))]"
       ],
       "tags": {
         "displayName": "MABSServerVM1Nic"
@@ -126,8 +125,7 @@
       "apiVersion": "2015-06-15",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('vmstorageName'))]",
-        "[resourceId('Microsoft.Network/networkInterfaces', variables('MABSServerVM1NicName'))]",
-        "Microsoft.Resources/deployments/VNetWithDNS"
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('MABSServerVM1NicName'))]"
       ],
       "tags": {
         "displayName": "MABSServerVM1"
