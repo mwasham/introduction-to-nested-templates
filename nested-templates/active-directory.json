@@ -122,6 +122,22 @@
       }
     },
     {
+        "name": "[variables('advmipName')]",
+        "type": "Microsoft.Network/publicIPAddresses",
+        "location": "[resourceGroup().location]",
+        "apiVersion": "2016-03-30",
+        "dependsOn": [ ],
+        "tags": {
+            "displayName": "advmip"
+        },
+        "properties": {
+            "publicIPAllocationMethod": "Dynamic",
+            "dnsSettings": {
+                "domainNameLabel": "[parameters('advmipDnsName')]"
+            }
+        }
+    },
+    {
       "name": "[parameters('ADVMName')]",
       "type": "Microsoft.Compute/virtualMachines",
       "location": "[resourceGroup().location]",
@@ -190,23 +206,7 @@
               "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('scriptFolder'), '/', variables('VM1scriptFileName'), ' ', variables('VM1scriptParameters'))]"
             }
           }
-        },
-        {
-          "name": "[variables('advmipName')]",
-          "type": "Microsoft.Network/publicIPAddresses",
-          "location": "[resourceGroup().location]",
-          "apiVersion": "2016-03-30",
-          "dependsOn": [ ],
-          "tags": {
-              "displayName": "advmip"
-          },
-          "properties": {
-              "publicIPAllocationMethod": "Dynamic",
-              "dnsSettings": {
-                  "domainNameLabel": "[parameters('advmipDnsName')]"
-              }
-          }
-      }
+        }
       ]
     }
   ],
