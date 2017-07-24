@@ -25,7 +25,7 @@
         }
     },
     "variables": {
-        "baseUri":"https://raw.githubusercontent.com/mwasham/introduction-to-nested-templates",
+        "baseUri":"https://raw.githubusercontent.com/mwasham/master/introduction-to-nested-templates",
         "ADInstallScript":"[concat(variables('baseUri'),'/','script-extensions/deploy-ad.ps1')",
         "ADJoinScript":"[concat(variables('baseUri'),'/','script-extensions/domain-join.ps1')"
     },
@@ -79,27 +79,27 @@
                 }
             }
         },
-        {
-            "name": "MemberServer",
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2016-09-01",
-            "dependsOn": [ 
-                "Microsoft.Resources/deployments/VirtualNetworkWithDNS"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                "uri": "[concat(variables('baseUri'), '/', 'nested-templates/member-server.json')]",
-                "contentVersion": "1.0.0.0"
-                },
-                "parameters":{
-                    "adminUserName":{"value": "[parameters('adminUserName')]"},
-                    "adminPassword":{"value": "[parameters('adminPassword')]"},
-                    "domainName":{"value": "[parameters('domainName')]"},
-                    "DomainJoinscriptUrl":{"value": "[variables('ADJoinScript')"}
-                }
-            }
+{
+    "name": "MemberServer",
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2016-09-01",
+    "dependsOn": [ 
+        "Microsoft.Resources/deployments/VirtualNetworkWithDNS"
+    ],
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+        "uri": "[concat(variables('baseUri'), '/', 'nested-templates/member-server.json')]",
+        "contentVersion": "1.0.0.0"
+        },
+        "parameters":{
+            "adminUserName":{"value": "[parameters('adminUserName')]"},
+            "adminPassword":{"value": "[parameters('adminPassword')]"},
+            "domainName":{"value": "[parameters('domainName')]"},
+            "DomainJoinscriptUrl":{"value": "[variables('ADJoinScript')"}
         }
+    }
+}
     ],
     "outputs": {
     }
